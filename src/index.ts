@@ -9,7 +9,7 @@ async function main() {
 
     if (isDev) {
       const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
-      console.log("≡ƒæÇ Watch mode enabled. Starting preview server...");
+      console.log("Watch mode enabled. Starting preview server...");
       
       try {
         Bun.serve({
@@ -25,17 +25,17 @@ async function main() {
             }
           },
         });
-        console.log(`≡ƒîÉ Preview your resume at: http://localhost:${port}`);
+        console.log(`Preview your resume at: http://localhost:${port}`);
       } catch (e: any) {
         if (e.code === "EADDRINUSE") {
-          console.error(`Γ¥î Port ${port} is already in use. Try running with PORT=3001 bun dev`);
+          console.error(`Port ${port} is already in use. Try running with PORT=3001 bun dev`);
         } else {
           throw e;
         }
       }
     }
   } catch (error) {
-    console.error("Γ¥î Failed to generate PDF:", error);
+    console.error("Failed to generate PDF:", error);
     process.exit(1);
   }
 }

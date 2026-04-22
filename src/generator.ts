@@ -42,12 +42,12 @@ export async function getHtml() {
 }
 
 export async function generatePdf() {
-  console.log("≡ƒÜÇ Starting PDF generation...");
+  console.log("Starting PDF generation...");
 
   const html = await getHtml();
 
   // 4. Render with Puppeteer
-  console.log("≡ƒîÉ Launching browser...");
+  console.log("Launching browser...");
   const browser = await puppeteer.launch({
     headless: true,
   });
@@ -56,7 +56,7 @@ export async function generatePdf() {
   await page.setContent(html, { waitUntil: "networkidle0" });
   
   const outputPath = path.resolve(process.cwd(), "resume.pdf");
-  console.log(`≡ƒû¿∩╕Å  Rendering PDF to ${outputPath}...`);
+  console.log(`Rendering PDF to ${outputPath}...`);
   
   await page.pdf({
     path: outputPath,
@@ -72,5 +72,5 @@ export async function generatePdf() {
   });
 
   await browser.close();
-  console.log("Γ£à PDF generated successfully!");
+  console.log("PDF generated successfully!");
 }
