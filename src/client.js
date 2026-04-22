@@ -16,7 +16,14 @@
     }
 
     #resume-paper {
-      background: white !important;
+      background-color: white !important;
+      background-image: linear-gradient(to bottom, 
+        transparent 296.8mm, 
+        rgba(0,0,0,0.06) 296.8mm, 
+        rgba(0,0,0,0.06) 297mm, 
+        transparent 297mm
+      ) !important;
+      background-size: 100% 297mm !important;
       width: 210mm !important;
       min-height: 297mm !important;
       padding: 1.5cm !important;
