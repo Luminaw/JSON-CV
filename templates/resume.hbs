@@ -16,6 +16,11 @@
       {{#if basics.phone}}<span>{{basics.phone}}</span>{{/if}}
       {{#if basics.email}}<span>{{basics.email}}</span>{{/if}}
       {{#if basics.url}}<span>{{basics.url}}</span>{{/if}}
+      {{#if basics.profiles.length}}
+        {{#each basics.profiles}}
+          <span><a href="{{url}}">{{network}}</a></span>
+        {{/each}}
+      {{/if}}
     </div>
   </header>
 
@@ -33,6 +38,28 @@
     <div class="item">
       <div class="item-header">
         <h3>{{position}} | {{name}}</h3>
+        <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
+      </div>
+      {{#if summary}}<p class="summary">{{summary}}</p>{{/if}}
+      {{#if highlights.length}}
+      <ul>
+        {{#each highlights}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if volunteer.length}}
+  <section id="volunteer">
+    <h2>Volunteer</h2>
+    {{#each volunteer}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{position}} | {{organization}}</h3>
         <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
       </div>
       {{#if summary}}<p class="summary">{{summary}}</p>{{/if}}
@@ -127,6 +154,61 @@
         <span class="date">{{date}}</span>
       </div>
       <p>{{issuer}}</p>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if publications.length}}
+  <section id="publications">
+    <h2>Publications</h2>
+    {{#each publications}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{name}}</h3>
+        <span class="date">{{formatDate releaseDate}}</span>
+      </div>
+      <p>{{publisher}}{{#if summary}} - {{summary}}{{/if}}</p>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if languages.length}}
+  <section id="languages">
+    <h2>Languages</h2>
+    <div class="skills-list">
+      {{#each languages}}
+      <div class="item">
+        <span class="skill-category">{{language}}:</span>
+        <span class="skill-keywords">{{fluency}}</span>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if interests.length}}
+  <section id="interests">
+    <h2>Interests</h2>
+    <div class="skills-list">
+      {{#each interests}}
+      <div class="item">
+        <span class="skill-category">{{name}}:</span>
+        <span class="skill-keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if references.length}}
+  <section id="references">
+    <h2>References</h2>
+    {{#each references}}
+    <div class="item">
+      <p><strong>{{name}}</strong></p>
+      <p><em>"{{reference}}"</em></p>
     </div>
     {{/each}}
   </section>

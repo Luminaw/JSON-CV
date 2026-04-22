@@ -108,3 +108,17 @@ li {
 header, section, article {
   display: block;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#references .item {
+  margin-top: 0.5rem;
+  font-size: 9pt;
+}
+
+#references p {
+  margin-bottom: 0.2rem;
+}
