@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{basics.name}} - Resume</title>
+  <style>
+    {{{style}}}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>{{basics.name}}</h1>
+    <div class="contact-info">
+      {{#if basics.location.city}}<span>{{basics.location.city}}, {{basics.location.region}}</span>{{/if}}
+      {{#if basics.phone}}<span>{{basics.phone}}</span>{{/if}}
+      {{#if basics.email}}<span>{{basics.email}}</span>{{/if}}
+      {{#if basics.url}}<span>{{basics.url}}</span>{{/if}}
+    </div>
+  </header>
+
+  {{#if basics.summary}}
+  <section id="summary">
+    <h2>Professional Summary</h2>
+    <p class="summary">{{basics.summary}}</p>
+  </section>
+  {{/if}}
+
+  {{#if work.length}}
+  <section id="experience">
+    <h2>Experience</h2>
+    {{#each work}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{position}} | {{name}}</h3>
+        <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
+      </div>
+      {{#if summary}}<p class="summary">{{summary}}</p>{{/if}}
+      {{#if highlights.length}}
+      <ul>
+        {{#each highlights}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if projects.length}}
+  <section id="projects">
+    <h2>Projects</h2>
+    {{#each projects}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{name}}</h3>
+        <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
+      </div>
+      {{#if description}}<p class="summary">{{description}}</p>{{/if}}
+      {{#if highlights.length}}
+      <ul>
+        {{#each highlights}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if skills.length}}
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      {{#each skills}}
+      <div class="item">
+        <span class="skill-category">{{name}}:</span>
+        <span class="skill-keywords">{{#each keywords}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</span>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+  {{/if}}
+
+  {{#if education.length}}
+  <section id="education">
+    <h2>Education</h2>
+    {{#each education}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{studyType}} in {{area}} | {{institution}}</h3>
+        <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
+      </div>
+      {{#if score}}<p>GPA: {{score}}</p>{{/if}}
+      {{#if courses.length}}
+      <p>Notable Courses: {{#each courses}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if awards.length}}
+  <section id="awards">
+    <h2>Awards</h2>
+    {{#each awards}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{title}}</h3>
+        <span class="date">{{date}}</span>
+      </div>
+      <p>{{awarder}}{{#if summary}} - {{summary}}{{/if}}</p>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+  {{#if certificates.length}}
+  <section id="certificates">
+    <h2>Certificates</h2>
+    {{#each certificates}}
+    <div class="item">
+      <div class="item-header">
+        <h3>{{name}}</h3>
+        <span class="date">{{date}}</span>
+      </div>
+      <p>{{issuer}}</p>
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+
+</body>
+</html>

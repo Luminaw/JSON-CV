@@ -1,0 +1,110 @@
+:root {
+  --font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --text-color: #000000;
+  --bg-color: #ffffff;
+  --line-height: 1.4;
+  --section-margin: 1rem;
+  --item-margin: 0.5rem;
+}
+
+@page {
+  size: A4;
+  margin: 1.5cm;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background: var(--bg-color);
+  line-height: var(--line-height);
+  font-size: 10pt;
+}
+
+h1 {
+  font-size: 20pt;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+h2 {
+  font-size: 12pt;
+  text-transform: uppercase;
+  border-bottom: 1pt solid #000;
+  margin-top: var(--section-margin);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.1rem;
+}
+
+h3 {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-info {
+  font-size: 9pt;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info span:not(:last-child)::after {
+  content: " | ";
+  margin: 0 0.3rem;
+}
+
+.item {
+  margin-bottom: var(--item-margin);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.date {
+  font-style: italic;
+  font-size: 9pt;
+}
+
+.summary {
+  margin-top: 0.2rem;
+  text-align: justify;
+}
+
+ul {
+  margin-left: 1.5rem;
+  margin-top: 0.2rem;
+  list-style-type: disc;
+}
+
+li {
+  margin-bottom: 0.2rem;
+  padding-left: 0.2rem;
+}
+
+.skills-list {
+  display: block;
+}
+
+.skill-category {
+  font-weight: bold;
+}
+
+.skill-keywords {
+  font-style: normal;
+}
+
+/* Optimization for PDF text extraction */
+header, section, article {
+  display: block;
+}
