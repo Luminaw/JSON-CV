@@ -62,7 +62,7 @@ export const ResumeSchema = z.object({
   })).optional(),
   certificates: z.array(z.object({
     name: z.string().optional(),
-    date: z.string().optional(),
+    date: iso8601,
     url: z.string().url().optional(),
     issuer: z.string().optional(),
   })).optional(),
