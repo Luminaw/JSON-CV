@@ -1,114 +1,165 @@
 {
   "basics": {
-    "name": "Richard Hendriks",
-    "label": "Programmer",
+    "name": "John Doe",
+    "label": "Senior Software Engineer",
     "image": "",
-    "email": "richard.hendriks@gmail.com",
-    "phone": "(912) 555-4321",
-    "url": "http://richardhendriks.example.com",
-    "summary": "Richard hails from Pied Piper's Senior Management Team. This person is a bit of a complete idiot, but very talented in compression software.",
+    "email": "john.doe@example.com",
+    "phone": "(555) 123-4567",
+    "url": "https://johndoe.dev",
+    "summary": "Innovative Software Engineer with 8+ years of experience in building scalable web applications. Proficient in full-stack development, cloud architecture, and leading high-performing engineering teams.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
+      "address": "123 Tech Lane",
+      "postalCode": "10001",
+      "city": "New York",
       "countryCode": "US",
-      "region": "California"
+      "region": "New York"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "neutralthoughts",
-        "url": "https://twitter.com/neutralthoughts"
+        "network": "LinkedIn",
+        "username": "johndoe",
+        "url": "https://linkedin.com/in/johndoe"
+      },
+      {
+        "network": "GitHub",
+        "username": "johndoe-dev",
+        "url": "https://github.com/johndoe-dev"
       }
     ]
   },
   "work": [
     {
-      "name": "Pied Piper",
-      "position": "CEO/President",
-      "url": "http://piedpiper.example.com",
-      "startDate": "2013-12-01",
-      "endDate": "2014-12-01",
-      "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently surpassed Weisman Scores™ previously considered theoretical.",
+      "name": "TechGiant Corp",
+      "position": "Lead Software Engineer",
+      "url": "https://techgiant.com",
+      "startDate": "2018-06-01",
+      "summary": "Leading the core platform team responsible for microservices architecture and developer experience.",
       "highlights": [
-        "Build the core compression algorithm that won them the TechCrunch Disrupt Cup",
-        "Optimized middle-out compression technique to achieve record-breaking results"
+        "Architected a distributed system handling 1M+ requests per second",
+        "Reduced deployment times by 40% through CI/CD optimization",
+        "Mentored 15+ junior and mid-level engineers"
+      ]
+    },
+    {
+      "name": "StartupHub",
+      "position": "Full Stack Developer",
+      "url": "https://startuphub.io",
+      "startDate": "2015-01-01",
+      "endDate": "2018-05-31",
+      "summary": "Early employee responsible for building the initial MVP and scaling the frontend architecture.",
+      "highlights": [
+        "Built the flagship React application from scratch",
+        "Integrated complex third-party APIs for real-time data processing"
       ]
     }
   ],
   "volunteer": [
     {
-      "organization": "CoderDojo",
-      "position": "Teacher",
-      "url": "http://coderdojo.example.com/",
-      "startDate": "2012-01-01",
-      "endDate": "2013-01-01",
-      "summary": "Global movement of free computer coding clubs for young people.",
+      "organization": "Open Source Foundation",
+      "position": "Maintainer",
+      "url": "https://opensource.org",
+      "startDate": "2016-01-01",
+      "summary": "Core maintainer for several popular utility libraries used by the community.",
       "highlights": [
-        "Awarded 'Teacher of the Month'"
+        "Resolved over 200+ security vulnerabilities in community projects"
       ]
     }
   ],
   "education": [
     {
-      "institution": "University of Oklahoma",
-      "url": "https://www.ou.edu/",
-      "area": "Information Technology",
-      "studyType": "Bachelor",
-      "startDate": "2011-06-01",
-      "endDate": "2014-01-01",
-      "score": "4.0",
+      "institution": "Stanford University",
+      "url": "https://stanford.edu",
+      "area": "Computer Science",
+      "studyType": "Master of Science",
+      "startDate": "2013-09-01",
+      "endDate": "2015-05-01",
+      "score": "3.9",
       "courses": [
-        "DB1101 - Basic SQL"
+        "Distributed Systems",
+        "Machine Learning",
+        "Advanced Algorithms"
       ]
     }
   ],
   "awards": [
     {
-      "title": "Digital Harbor Software Gazelle Award",
-      "date": "2014-11-01",
-      "awarder": "Digital Harbor",
-      "summary": "There is no spoon."
+      "title": "Engineering Excellence Award",
+      "date": "2021-12-01",
+      "awarder": "TechGiant Corp",
+      "summary": "Recognized for outstanding contributions to platform stability."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "date": "2022-03-01",
+      "issuer": "Amazon Web Services"
     }
   ],
   "skills": [
     {
-      "name": "Web Development",
+      "name": "Backend",
       "level": "Master",
       "keywords": [
-        "HTML",
-        "CSS",
-        "Javascript"
+        "Node.js",
+        "TypeScript",
+        "Go",
+        "PostgreSQL",
+        "Redis"
       ]
     },
     {
-      "name": "Compression",
-      "level": "Master",
+      "name": "Frontend",
+      "level": "Expert",
       "keywords": [
-        "Middle-out",
-        "Huffman Coding"
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Web-Vitals"
+      ]
+    },
+    {
+      "name": "Cloud",
+      "level": "Expert",
+      "keywords": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Terraform"
       ]
     }
   ],
   "languages": [
     {
       "language": "English",
-      "fluency": "Native speaker"
+      "fluency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Professional Working"
     }
   ],
   "interests": [
     {
-      "name": "Wildlife",
+      "name": "Technology",
       "keywords": [
-        "Ferrets",
-        "Unicorns"
+        "Open Source",
+        "IoT",
+        "AI Ethics"
+      ]
+    },
+    {
+      "name": "Outdoor",
+      "keywords": [
+        "Mountain Biking",
+        "Sailing"
       ]
     }
   ],
   "references": [
     {
-      "name": "Erlich Bachman",
-      "reference": "It is my pleasure to recommend Richard, his work ethic is unparalleled and he is a compression god."
+      "name": "Jane Smith",
+      "reference": "John is an exceptional engineer who consistently delivers high-quality code. His ability to solve complex problems is unmatched."
     }
   ]
 }
