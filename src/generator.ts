@@ -4,20 +4,22 @@ import { ResumeSchema } from "./schema";
 import fs from "fs/promises";
 import path from "path";
 
-export async function generatePdf() {
-  console.log("≡ƒÜÇ Starting PDF generation...");
+// Handlebars Helper for Date Formatting
+Handlebars.registerHelper("formatDate", (dateString: string) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+  return date.toLocaleString("en-US", { month: "short", year: "numeric" });
+});
 
+export async function getHtml() {
   // 1. Determine which JSON to use
   let jsonPath = path.resolve(process.cwd(), "resume.json");
-  let isExample = false;
 
   try {
     await fs.access(jsonPath);
-    console.log("≡ƒôä Found 'resume.json', using personal data.");
   } catch {
     jsonPath = path.resolve(process.cwd(), "example_resume.json");
-    console.log("≡ƒôä 'resume.json' not found, falling back to 'example_resume.json'.");
-    isExample = true;
   }
 
   // 2. Read and validate JSON
@@ -32,19 +34,17 @@ export async function generatePdf() {
   const templateSource = await fs.readFile(templatePath, "utf-8");
   const cssSource = await fs.readFile(cssPath, "utf-8");
   
-  // Handlebars Helper for Date Formatting
-  Handlebars.registerHelper("formatDate", (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) return dateString; // Fallback to raw string if invalid
-    return date.toLocaleString("en-US", { month: "short", year: "numeric" });
-  });
-
   const template = Handlebars.compile(templateSource);
-  const html = template({
+  return template({
     ...validatedData,
     style: cssSource
   });
+}
+
+export async function generatePdf() {
+  console.log("≡ƒÜÇ Starting PDF generation...");
+
+  const html = await getHtml();
 
   // 4. Render with Puppeteer
   console.log("≡ƒîÉ Launching browser...");
