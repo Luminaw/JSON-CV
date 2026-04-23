@@ -12,6 +12,29 @@ Handlebars.registerHelper("formatDate", (dateString: string) => {
   return date.toLocaleString("en-US", { month: "short", year: "numeric" });
 });
 
+Handlebars.registerHelper("iconForNetwork", (network: string) => {
+  if (!network) return "fas fa-link";
+  const map: Record<string, string> = {
+    github: "fab fa-github",
+    linkedin: "fab fa-linkedin",
+    twitter: "fab fa-x-twitter",
+    x: "fab fa-x-twitter",
+    instagram: "fab fa-instagram",
+    facebook: "fab fa-facebook",
+    youtube: "fab fa-youtube",
+    twitch: "fab fa-twitch",
+    discord: "fab fa-discord",
+    stackoverflow: "fab fa-stack-overflow",
+    medium: "fab fa-medium",
+    behance: "fab fa-behance",
+    dribbble: "fab fa-dribbble",
+    codepen: "fab fa-codepen",
+    gitlab: "fab fa-gitlab",
+    bitbucket: "fab fa-bitbucket",
+  };
+  return map[network.toLowerCase()] || "fas fa-link";
+});
+
 export async function getHtml() {
   // 1. Determine which JSON to use
   let jsonPath = path.resolve(process.cwd(), "resume.json");

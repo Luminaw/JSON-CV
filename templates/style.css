@@ -52,13 +52,29 @@ h3 {
 }
 
 .contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
   font-size: 9pt;
   margin-bottom: 0.5rem;
+  color: #444;
 }
 
-.contact-info span:not(:last-child)::after {
-  content: " | ";
-  margin: 0 0.3rem;
+.contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.contact-info i {
+  color: #666;
+  font-size: 10pt;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }
 
 .item {
@@ -69,21 +85,42 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 0.1rem;
+}
+
+.title-group h3 {
+  display: inline;
+}
+
+.entity-name {
+  font-weight: normal;
+  color: #333;
+}
+
+.separator {
+  font-weight: normal;
+  color: #666;
 }
 
 .date {
   font-style: italic;
   font-size: 9pt;
+  white-space: nowrap;
 }
 
-.summary {
+.summary, .job-summary {
   margin-top: 0.2rem;
   text-align: justify;
 }
 
+.job-summary {
+  font-size: 10pt;
+}
+
 ul {
-  margin-left: 1.5rem;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
+  margin-left: 1.2rem;
+  margin-bottom: 0.2rem;
   list-style-type: disc;
 }
 
@@ -114,11 +151,39 @@ a {
   text-decoration: none;
 }
 
+.gpa, .courses {
+  font-size: 9pt;
+  margin-top: 0.1rem;
+}
+
 #references .item {
   margin-top: 0.5rem;
   font-size: 9pt;
 }
 
+.reference-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.reference-text {
+  margin-top: 0.1rem;
+  text-align: justify;
+}
+
 #references p {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
+}
+
+/* ATS Optimization: Hide elements visually but keep them for parsers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

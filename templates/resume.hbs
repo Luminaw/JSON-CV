@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{{basics.name}} - Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     {{{style}}}
   </style>
@@ -12,14 +13,24 @@
   <header class="header">
     <h1>{{basics.name}}</h1>
     <div class="contact-info">
-      {{#if basics.location.address}}<span>{{basics.location.address}}</span>{{/if}}
-      {{#if basics.location.city}}<span>{{basics.location.city}}{{#if basics.location.region}}, {{basics.location.region}}{{/if}}{{#if basics.location.postalCode}} {{basics.location.postalCode}}{{/if}}</span>{{/if}}
-      {{#if basics.phone}}<span>{{basics.phone}}</span>{{/if}}
-      {{#if basics.email}}<span>{{basics.email}}</span>{{/if}}
-      {{#if basics.url}}<span>{{basics.url}}</span>{{/if}}
+      {{#if basics.location.city}}
+        <span>
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 
+          {{basics.location.city}}{{#if basics.location.region}}, {{basics.location.region}}{{/if}}&nbsp;<span class="sr-only">{{#if basics.location.postalCode}}{{basics.location.postalCode}}{{/if}} {{#if basics.location.countryCode}}{{basics.location.countryCode}}{{/if}}</span>
+        </span>
+      {{/if}}
+      {{#if basics.phone}}
+        <span><i class="fas fa-phone" aria-hidden="true"></i> {{basics.phone}}</span>
+      {{/if}}
+      {{#if basics.email}}
+        <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:{{basics.email}}">{{basics.email}}</a></span>
+      {{/if}}
+      {{#if basics.url}}
+        <span><i class="fas fa-globe" aria-hidden="true"></i> <a href="{{basics.url}}">{{basics.url}}</a></span>
+      {{/if}}
       {{#if basics.profiles.length}}
         {{#each basics.profiles}}
-          <span><a href="{{url}}">{{network}}</a></span>
+          <span><i class="{{iconForNetwork network}}" aria-hidden="true"></i> <a href="{{url}}"><span class="sr-only">{{network}}: </span>{{#if username}}{{username}}{{else}}{{network}}{{/if}}</a></span>
         {{/each}}
       {{/if}}
     </div>
@@ -34,14 +45,16 @@
 
   {{#if work.length}}
   <section id="experience">
-    <h2>Experience</h2>
+    <h2>Professional Experience</h2>
     {{#each work}}
     <div class="item">
       <div class="item-header">
-        <h3>{{position}} | {{name}}</h3>
+        <div class="title-group">
+          <h3>{{position}}<span class="separator">, </span><span class="entity-name">{{name}}</span></h3>
+        </div>
         <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
       </div>
-      {{#if summary}}<p class="summary">{{summary}}</p>{{/if}}
+      {{#if summary}}<div class="job-summary">{{summary}}</div>{{/if}}
       {{#if highlights.length}}
       <ul>
         {{#each highlights}}
@@ -50,20 +63,23 @@
       </ul>
       {{/if}}
     </div>
+    <div class="sr-only">&nbsp;</div>
     {{/each}}
   </section>
   {{/if}}
 
   {{#if volunteer.length}}
   <section id="volunteer">
-    <h2>Volunteer</h2>
+    <h2>Volunteer Experience</h2>
     {{#each volunteer}}
     <div class="item">
       <div class="item-header">
-        <h3>{{position}} | {{organization}}</h3>
+        <div class="title-group">
+          <h3>{{position}}<span class="separator">, </span><span class="entity-name">{{organization}}</span></h3>
+        </div>
         <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
       </div>
-      {{#if summary}}<p class="summary">{{summary}}</p>{{/if}}
+      {{#if summary}}<div class="job-summary">{{summary}}</div>{{/if}}
       {{#if highlights.length}}
       <ul>
         {{#each highlights}}
@@ -74,6 +90,7 @@
     </div>
     {{/each}}
   </section>
+  <div class="sr-only">&nbsp;</div>
   {{/if}}
 
   {{#if projects.length}}
@@ -106,7 +123,7 @@
 
   {{#if skills.length}}
   <section id="skills">
-    <h2>Skills</h2>
+    <h2>Technical Skills</h2>
     <div class="skills-list">
       {{#each skills}}
       <div class="item">
@@ -116,6 +133,7 @@
       {{/each}}
     </div>
   </section>
+  <div class="sr-only">&nbsp;</div>
   {{/if}}
 
   {{#if education.length}}
@@ -124,16 +142,19 @@
     {{#each education}}
     <div class="item">
       <div class="item-header">
-        <h3>{{studyType}} in {{area}} | {{institution}}</h3>
+        <div class="title-group">
+          <h3>{{studyType}}{{#if area}} in {{area}}{{/if}}<span class="separator">, </span><span class="entity-name">{{institution}}</span></h3>
+        </div>
         <span class="date">{{formatDate startDate}} - {{#if endDate}}{{formatDate endDate}}{{else}}Present{{/if}}</span>
       </div>
-      {{#if score}}<p>GPA: {{score}}</p>{{/if}}
+      {{#if score}}<div class="gpa">GPA: {{score}}</div>{{/if}}
       {{#if courses.length}}
-      <p>Notable Courses: {{#each courses}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+      <div class="courses">Notable Courses: {{#each courses}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>
       {{/if}}
     </div>
     {{/each}}
   </section>
+  <div class="sr-only">&nbsp;</div>
   {{/if}}
 
   {{#if awards.length}}
@@ -142,10 +163,12 @@
     {{#each awards}}
     <div class="item">
       <div class="item-header">
-        <h3>{{title}}</h3>
+        <div class="title-group">
+          <h3>{{title}}<span class="separator">, </span><span class="entity-name">{{awarder}}</span></h3>
+        </div>
         <span class="date">{{date}}</span>
       </div>
-      <p>{{awarder}}{{#if summary}} - {{summary}}{{/if}}</p>
+      {{#if summary}}<p class="summary">{{summary}}</p>{{/if}}
     </div>
     {{/each}}
   </section>
@@ -153,17 +176,19 @@
 
   {{#if certificates.length}}
   <section id="certificates">
-    <h2>Certificates</h2>
+    <h2>Certifications</h2>
     {{#each certificates}}
     <div class="item">
       <div class="item-header">
-        <h3>{{name}}</h3>
+        <div class="title-group">
+          <h3>{{name}}<span class="separator">, </span><span class="entity-name">{{issuer}}</span></h3>
+        </div>
         <span class="date">{{date}}</span>
       </div>
-      <p>{{issuer}}</p>
     </div>
     {{/each}}
   </section>
+  <div class="sr-only">&nbsp;</div>
   {{/if}}
 
   {{#if publications.length}}
@@ -193,6 +218,7 @@
       {{/each}}
     </div>
   </section>
+  <div class="sr-only">&nbsp;</div>
   {{/if}}
 
   {{#if interests.length}}
@@ -207,6 +233,7 @@
       {{/each}}
     </div>
   </section>
+  <div class="sr-only">&nbsp;</div>
   {{/if}}
 
   {{#if references.length}}
@@ -214,8 +241,10 @@
     <h2>References</h2>
     {{#each references}}
     <div class="item">
-      <p><strong>{{name}}</strong></p>
-      <p><em>"{{reference}}"</em></p>
+      <div class="reference-item">
+        <div class="reference-name"><strong>{{name}}</strong></div>
+        {{#if reference}}<div class="reference-text"><em>"{{reference}}"</em></div>{{/if}}
+      </div>
     </div>
     {{/each}}
   </section>
