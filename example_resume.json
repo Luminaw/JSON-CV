@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/refs/heads/master/job-schema.json",
   "basics": {
     "name": "John Doe",
     "label": "Senior Software Engineer",
